@@ -14,14 +14,15 @@ import tkinter as tk
 
 ################################################################
 #declarations
-x = 1
+x = 2
+y = 0
 
 #buca codigo na lista de acoes do excel:
 def seleciona_excel():
     p.moveTo(316,-24)
     p.click()
     t.sleep(1)
-    print(datetime.now(), ' - excel selecionado')
+    print(datetime.now(), ' - excel selecionado (primeira vez)')
 
 #copiando codigo da acao na lista de acoes do excel
 def copia_cod():
@@ -128,12 +129,17 @@ def pesquisa():
 
 ################################################################
 #execution
-while x<2:
-    seleciona_excel()
+p.moveTo(316,-24)
+p.click()
+t.sleep(1)
+print(datetime.now(), ' - excel selecionado (primeira vez)')
+
+while x>y:
+    
     copia_cod()
     # clipboard()
     pesquisa()
-    t.sleep(10)
+    t.sleep(5)
     copia_parecer()
     cola_parecer_excel()
 
