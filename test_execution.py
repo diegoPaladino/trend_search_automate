@@ -143,4 +143,4 @@ while x>y:
     copia_parecer()
     cola_parecer_excel()
 
-    x+=1
+x+=1
