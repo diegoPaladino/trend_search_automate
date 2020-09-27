@@ -34,15 +34,25 @@ def copia_cod():
     print(datetime.now(), ' - codigo copiado')
 
 #copiando codigo da acao para area de tranferencia, usando tkinter
-def clipboard():
-    root = tk.Tk()
-    root.withdraw()
-    acao = root.clipboard_get()
-    print(datetime.now(), ' - clipboard copiado')
+# def clipboard():
+#     root = tk.Tk()
+#     root.withdraw()
+#     c = root.clipboard_get()
+#     print(datetime.now(), ' - clipboard copiado')
+
+# def copia_parecer():
+#     p.
 
 
 def pesquisa():
-    acao2 = acao
+
+    root = tk.Tk()
+    root.withdraw()
+    c = root.clipboard_get()
+    print(datetime.now(), ' - clipboard copiado')
+
+
+    acao2 = c
 
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
@@ -105,5 +115,5 @@ def pesquisa():
 #execution
 seleciona_excel()
 copia_cod()
-clipboard()
+# clipboard()
 pesquisa()
