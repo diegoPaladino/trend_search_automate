@@ -11,25 +11,13 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from mpl_finance import candlestick_ohlc
 from mpl_finance import candlestick_ohlc
-import time
-from datetime import datetime
 
-#declarating items
-x = 10
-acao = 'IRBR3'
-
-#action:
-
-# while x<y:
-#     busca()
-
-
-acao2 = 'IRBR3'
+acao2 = 'IVVB11'
 
 df_bolsa = investpy.get_stock_historical_data(stock=acao2,
-                                        country='brazil',
-                                        from_date='01/01/2010',
-                                        to_date='24/09/2020')
+                                          country='brazil',
+                                          from_date='01/01/2020',
+                                          to_date='24/09/2020')
 
 df_bolsa.index.names = ['Data']
 df_bolsa.columns = ['Abertura', 'Maximo', 'Minimo', 'Fechamento', 'Volume', 'Moeda']
@@ -45,7 +33,7 @@ print(df_)
 
 tendencia_alta=1
 for i in range(6):
-if(df_.ema21[-i-1] < df_.ema21[-i-2]):
+  if(df_.ema21[-i-1] < df_.ema21[-i-2]):
     tendencia_alta=0
 
 print()
@@ -82,4 +70,3 @@ plt.title(acao2.upper() + ' : Gráfico Diário')
 plt.show(block=True)
 
 del (df_)
-
