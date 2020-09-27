@@ -14,7 +14,7 @@ import tkinter as tk
 
 ################################################################
 #declarations
-x = 10
+x = 1
 
 #buca codigo na lista de acoes do excel:
 def seleciona_excel():
@@ -33,16 +33,31 @@ def copia_cod():
     p.keyUp('ctrl')
     print(datetime.now(), ' - codigo copiado')
 
-#copiando codigo da acao para area de tranferencia, usando tkinter
-# def clipboard():
-#     root = tk.Tk()
-#     root.withdraw()
-#     c = root.clipboard_get()
-#     print(datetime.now(), ' - clipboard copiado')
 
-# def copia_parecer():
-#     p.
+def copia_parecer():
+    p.moveTo(323,-92,duration=0.3)
+    p.click()
+    p.dragTo(575,-92, button='left',duration=1)
+    p.keyDown('ctrl')
+    p.hotkey('c')
+    p.keyUp('ctrl')
+    print(datetime.now(), ' - parecer copiado')
 
+def cola_parecer_excel():
+    p.moveTo(316,-24)
+    p.click()
+    t.sleep(1)
+    p.hotkey('esc')
+    t.sleep(0.5)
+    p.hotkey('right')
+    t.sleep(0.3)
+    p.keyDown('ctrl')
+    p.hotkey('v')
+    p.keyUp('ctrl')
+    t.sleep(0.5)
+    p.hotkey('down')
+    p.hotkey('left')
+    t.sleep(1)
 
 def pesquisa():
 
@@ -87,33 +102,39 @@ def pesquisa():
     ##############
 
 
-    ohlc = df_[['Data', 'Abertura', 'Maximo', 'Minimo', 'Fechamento']]
+    # ohlc = df_[['Data', 'Abertura', 'Maximo', 'Minimo', 'Fechamento']]
 
 
-    f1, ax = plt.subplots(figsize=(10, 5))
+    # f1, ax = plt.subplots(figsize=(10, 5))
 
-    # plot the candlesticks
-    candlestick_ohlc(ax, ohlc.values, width=.6, colorup='green', colordown='red')
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
+    # # plot the candlesticks
+    # candlestick_ohlc(ax, ohlc.values, width=.6, colorup='green', colordown='red')
+    # ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
 
-    # plot the moving average lines
-    label_ = acao2.upper() + ' ma21'
-    ax.plot(df_.index, df_['ema21'], color='yellow', label=label_)
-    # ax.plot(df.index, df['ema100'], color = 'purple', label = 'ma100')
+    # # plot the moving average lines
+    # label_ = acao2.upper() + ' ma21'
+    # ax.plot(df_.index, df_['ema21'], color='yellow', label=label_)
+    # # ax.plot(df.index, df['ema100'], color = 'purple', label = 'ma100')
 
-    # other parameters
-    ax.grid(False)
-    ax.legend()
+    # # other parameters
+    # ax.grid(False)
+    # ax.legend()
 
-    plt.title(acao2.upper() + ' : Gráfico Diário')
+    # plt.title(acao2.upper() + ' : Gráfico Diário')
 
-    plt.show(block=True)
+    # plt.show(block=True)
 
-    del (df_)
+    # del (df_)
 
 ################################################################
 #execution
-seleciona_excel()
-copia_cod()
-# clipboard()
-pesquisa()
+while x<2:
+    seleciona_excel()
+    copia_cod()
+    # clipboard()
+    pesquisa()
+    t.sleep(10)
+    copia_parecer()
+    cola_parecer_excel()
+
+    x+=1
