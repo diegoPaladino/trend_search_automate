@@ -57,7 +57,7 @@ def cola_parecer_excel():
     p.keyUp('ctrl')
     t.sleep(0.5)
     p.hotkey('down')
-    p.hotkey('left')
+    p.press('left',presses=2)
     t.sleep(1)
 
 def pesquisa():
