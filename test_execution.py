@@ -45,12 +45,12 @@ def copia_parecer():
     print(datetime.now(), ' - parecer copiado')
 
 def cola_parecer_excel():
-    p.moveTo(316,-24)
+    p.moveTo(316,-24,duration=0.3)
     p.click()
     t.sleep(1)
     p.hotkey('esc')
     t.sleep(0.5)
-    p.hotkey('right')
+    p.press('right',presses=2)
     t.sleep(0.3)
     p.keyDown('ctrl')
     p.hotkey('v')
