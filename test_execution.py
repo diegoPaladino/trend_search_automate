@@ -38,7 +38,7 @@ def copia_cod():
 def copia_parecer():
     p.moveTo(323,-92,duration=0.3)
     p.click()
-    p.dragTo(575,-92, button='left',duration=1)
+    p.dragTo(365,-92, button='left',duration=0.3)
     p.keyDown('ctrl')
     p.hotkey('c')
     p.keyUp('ctrl')
@@ -50,15 +50,16 @@ def cola_parecer_excel():
     t.sleep(1)
     p.hotkey('esc')
     t.sleep(0.5)
-    p.press('right',presses=2)
+    p.press('right')
     t.sleep(0.3)
     p.keyDown('ctrl')
     p.hotkey('v')
     p.keyUp('ctrl')
     t.sleep(0.5)
     p.hotkey('down')
-    p.press('left',presses=2)
+    p.press('left')
     t.sleep(1)
+    print(datetime.now(), ' - parecer colado')
 
 def pesquisa():
 
@@ -73,7 +74,7 @@ def pesquisa():
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
                                             from_date='01/01/2010',
-                                            to_date='24/09/2020')
+                                            to_date='30/09/2020')
 
     df_bolsa.index.names = ['Data']
     df_bolsa.columns = ['Abertura', 'Maximo', 'Minimo', 'Fechamento', 'Volume', 'Moeda']
@@ -94,9 +95,11 @@ def pesquisa():
 
     print()
     if(tendencia_alta==1):
-        print(acao2 + ' está em tendência de alta!')
+        # print(acao2 + ' está em tendência de alta!')
+        print('SIM')
     else:
-        print(acao2 + ' não está em tendência de alta!')
+        # print(acao2 + ' não está em tendência de alta!')
+        print('NÃO')
 
     ##############
     # Plot Chart #
