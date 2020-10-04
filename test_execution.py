@@ -50,14 +50,14 @@ def cola_parecer_excel():
     t.sleep(1)
     p.hotkey('esc')
     t.sleep(0.5)
-    p.press('right')
+    p.press('left')
     t.sleep(0.3)
     p.keyDown('ctrl')
     p.hotkey('v')
     p.keyUp('ctrl')
     t.sleep(0.5)
     p.hotkey('down')
-    p.press('left')
+    p.press('right')
     t.sleep(1)
     print(datetime.now(), ' - parecer colado')
 
@@ -74,7 +74,7 @@ def pesquisa():
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
                                             from_date='01/01/2010',
-                                            to_date='30/09/2020')
+                                            to_date='02/10/2020')
 
     df_bolsa.index.names = ['Data']
     df_bolsa.columns = ['Abertura', 'Maximo', 'Minimo', 'Fechamento', 'Volume', 'Moeda']
@@ -142,7 +142,7 @@ while x>y:
     copia_cod()
     # clipboard()
     pesquisa()
-    t.sleep(5)
+    t.sleep(3)
     copia_parecer()
     cola_parecer_excel()
 
