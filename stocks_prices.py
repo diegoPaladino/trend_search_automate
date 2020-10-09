@@ -4,5 +4,5 @@
 import investpy as inv
 # declarations
 # execution
-preco = inv.get_stock_information('AGRO3','brazil')
+preco = inv.get_stock_company_profile('IBFF11','brazil')
 print(preco)
