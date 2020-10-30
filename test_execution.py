@@ -74,7 +74,7 @@ def pesquisa():
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
                                             from_date='01/01/2010',
-                                            to_date='27/10/2020')
+                                            to_date='29/10/2020')
 
     df_bolsa.index.names = ['Data']
     df_bolsa.columns = ['Abertura', 'Maximo', 'Minimo', 'Fechamento', 'Volume', 'Moeda']
