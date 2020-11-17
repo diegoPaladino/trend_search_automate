@@ -36,9 +36,10 @@ def copia_cod():
 
 
 def copia_parecer():
-    p.moveTo(323,-92,duration=0.3)
-    p.click()
-    p.dragTo(365,-92, button='left',duration=0.3)
+    p.moveTo(334,-92,duration=0.3)
+    # p.click()
+    p.doubleClick()
+    # p.dragTo(365,-92, button='left',duration=0.3)
     p.keyDown('ctrl')
     p.hotkey('c')
     p.keyUp('ctrl')
@@ -74,7 +75,7 @@ def pesquisa():
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
                                             from_date='01/01/2010',
-                                            to_date='02/11/2020')
+                                            to_date='16/11/2020')
 
     df_bolsa.index.names = ['Data']
     df_bolsa.columns = ['Abertura', 'Maximo', 'Minimo', 'Fechamento', 'Volume', 'Moeda']
