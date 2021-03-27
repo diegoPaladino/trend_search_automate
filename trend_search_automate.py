@@ -17,7 +17,7 @@ acao2 = 'IVVB11'
 df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                           country='brazil',
                                           from_date='01/01/2020',
-                                          to_date='09/10/2020')
+                                          to_date='11/10/2020')
 
 df_bolsa.index.names = ['Data']
 df_bolsa.columns = ['Abertura', 'Maximo', 'Minimo', 'Fechamento', 'Volume', 'Moeda']
