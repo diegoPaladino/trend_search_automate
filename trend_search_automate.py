@@ -9,8 +9,8 @@
 import investpy
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from mpl_finance import candlestick_ohlc
-from mpl_finance import candlestick_ohlc
+# from mpl_finance import candlestick_ohlc
+from mplfinance.original_flavor import candlestick_ohlc
 
 acao2 = 'IVVB11'
 

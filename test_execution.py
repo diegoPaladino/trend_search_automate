@@ -21,7 +21,7 @@ y = 0
 def seleciona_excel():
     p.moveTo(316,-24)
     p.click()
-    t.sleep(1)
+    t.sleep(0.2)
     print(datetime.now(), ' - excel selecionado (primeira vez)')
 
 #copiando codigo da acao na lista de acoes do excel
