@@ -6,7 +6,6 @@ import investpy
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from mpl_finance import candlestick_ohlc
-from mpl_finance import candlestick_ohlc
 import pyautogui as p
 import time as t
 from datetime import datetime
@@ -18,6 +17,10 @@ x = 2
 y = 0
 
 #buca codigo na lista de acoes do excel:
+
+
+    
+
 def seleciona_excel():
     p.moveTo(316,-24)
     p.click()
@@ -74,8 +77,8 @@ def pesquisa():
 
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
-                                            from_date='01/01/2010',
-                                            to_date='31/03/2021')
+                                            from_date='01/01/2021',
+                                            to_date='05/08/2021')
 
     df_bolsa.index.names = ['Data']
     df_bolsa.columns = ['Abertura', 'Maximo', 'Minimo', 'Fechamento', 'Volume', 'Moeda']
@@ -137,6 +140,9 @@ p.moveTo(316,-24)
 p.click()
 t.sleep(1)
 print(datetime.now(), ' - excel selecionado (primeira vez)')
+
+# p.alert(text='vamos começar!', title='COMEÇO', button='OK')
+
 
 while x>y:
     
