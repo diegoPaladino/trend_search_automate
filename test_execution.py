@@ -7,10 +7,13 @@ import investpy
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from mplfinance.original_flavor import candlestick_ohlc
+from numpy.core.fromnumeric import var
+from numpy.lib.function_base import _extract_dispatcher
 import pyautogui as p
 import time as t
 from datetime import datetime
 import tkinter as tk
+import pyperclip
 
 ################################################################
 #declarations
@@ -33,7 +36,15 @@ def copia_cod():
     p.keyDown('ctrl')
     p.hotkey('c')
     p.keyUp('ctrl')
-    print(datetime.now(), ' - codigo copiado')
+    root = tk.Tk()
+    root.withdraw()
+    a = root.clipboard_get()
+    print(datetime.now(), ' - ACAO copiado')
+    
+    
+    
+    
+    
 
 
 def copia_parecer():
@@ -42,7 +53,13 @@ def copia_parecer():
     p.keyDown('ctrl')
     p.hotkey('c')
     p.keyUp('ctrl')
-    print(datetime.now(), ' - parecer copiado')
+    root = tk.Tk()
+    root.withdraw()
+    b = root.clipboard_get()
+    # pyperclip.copy(b)
+    print(datetime.now(), ' - PARECER copiado')
+    
+    
 
 def cola_parecer_excel():
     p.moveTo(316,-24,duration=0.3)
@@ -59,7 +76,7 @@ def cola_parecer_excel():
     p.hotkey('down')
     p.press('right')
     t.sleep(1)
-    print(datetime.now(), ' - parecer colado')
+    print(datetime.now(), ' - PARECER colado')
     
 def exception():
     # p.hotkey('esc')
@@ -72,10 +89,12 @@ def pesquisa():
     root = tk.Tk()
     root.withdraw()
     c = root.clipboard_get()
-    print(datetime.now(), ' - clipboard copiado')
+    print(datetime.now(), ' - ACAO2 copiado')
+    print(c)
 
 
     acao2 = c
+    print(acao2)
 
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
@@ -149,13 +168,20 @@ print(datetime.now(), ' - excel selecionado (primeira vez)')
 while True:
     try:
         copia_cod()
-        # clipboard()
         pesquisa()
-        t.sleep(3)
+        t.sleep(2)
         copia_parecer()
         cola_parecer_excel()
+        # print(acao)
     except:
-        exception()
+        print('Exception ')
+        p.hotkey('esc')
+        t.sleep(0.2)
+        p.hotkey('down')
+    #     continue
+    # else:
+    #     if c != "":
+    #         print('eureka!')
         
     # else:
     #     print('eureka!')
