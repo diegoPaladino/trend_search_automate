@@ -6,7 +6,7 @@
 import investpy
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from mpl_finance import candlestick_ohlc
+from mplfinance.original_flavor import candlestick_ohlc
 import pyautogui as p
 import time as t
 from datetime import datetime
@@ -61,7 +61,7 @@ def cola_parecer_excel():
     t.sleep(0.3)
     p.hotkey('down')
     p.press('right')
-    t.sleep(3)
+    t.sleep(1)
     print(datetime.now(), ' - parecer colado')
 
 def pesquisa():
@@ -145,21 +145,29 @@ print(datetime.now(), ' - excel selecionado (primeira vez)')
 
 
 while True:
+    copia_cod()
+    # clipboard()
+    pesquisa()
+    t.sleep(3)
+    copia_parecer()
+    cola_parecer_excel()
+        
+
     
-    try:
+    # try:
         
-        copia_cod()
-        # clipboard()
-        pesquisa()
-        t.sleep(3)
-        copia_parecer()
-        cola_parecer_excel()
+    #     copia_cod()
+    #     # clipboard()
+    #     pesquisa()
+    #     t.sleep(3)
+    #     copia_parecer()
+    #     cola_parecer_excel()
         
-        # x+=1
+    #     # x+=1
         
-        # break
+    #     # break
     
-    except:
-        pass
-        
-        # x+=1
+    # except:
+    # #     pass
+    #     print('except!')
+    #     # x+=1
