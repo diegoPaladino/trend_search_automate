@@ -1,4 +1,5 @@
 # test_execution
+# após varios meses deu certo graças às orientações extraidas da documentação do investpy: https://pypi.org/project/investpy/
 
 ################################################################
 #importing libraries
@@ -31,7 +32,7 @@ def seleciona_excel():
 def copia_cod():
     p.moveTo(280,179)
     p.doubleClick()
-    t.sleep(0.5)
+    t.sleep(0.3)
     p.keyDown('ctrl')
     p.hotkey('c')
     p.keyUp('ctrl')
@@ -40,9 +41,7 @@ def copia_cod():
 
 def copia_parecer():
     p.moveTo(334,-92,duration=0.3)
-    # p.click()
     p.doubleClick()
-    # p.dragTo(365,-92, button='left',duration=0.3)
     p.keyDown('ctrl')
     p.hotkey('c')
     p.keyUp('ctrl')
@@ -51,18 +50,18 @@ def copia_parecer():
 def cola_parecer_excel():
     p.moveTo(316,-24,duration=0.3)
     p.click()
-    t.sleep(1)
+    t.sleep(0.2)
     p.hotkey('esc')
-    t.sleep(0.5)
+    t.sleep(0.2)
     p.press('left')
-    t.sleep(0.3)
+    t.sleep(0.2)
     p.keyDown('ctrl')
     p.hotkey('v')
     p.keyUp('ctrl')
-    t.sleep(0.5)
+    t.sleep(0.3)
     p.hotkey('down')
     p.press('right')
-    t.sleep(1)
+    t.sleep(3)
     print(datetime.now(), ' - parecer colado')
 
 def pesquisa():
@@ -77,7 +76,7 @@ def pesquisa():
 
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
-                                            from_date='01/01/2021',
+                                            from_date='02/08/2021',
                                             to_date='05/08/2021')
 
     df_bolsa.index.names = ['Data']
@@ -136,6 +135,7 @@ def pesquisa():
 
 ################################################################
 #execution
+
 p.moveTo(316,-24)
 p.click()
 t.sleep(1)
@@ -144,13 +144,22 @@ print(datetime.now(), ' - excel selecionado (primeira vez)')
 # p.alert(text='vamos começar!', title='COMEÇO', button='OK')
 
 
-while x>y:
+while True:
     
-    copia_cod()
-    # clipboard()
-    pesquisa()
-    t.sleep(3)
-    copia_parecer()
-    cola_parecer_excel()
-
-x+=1
+    try:
+        
+        copia_cod()
+        # clipboard()
+        pesquisa()
+        t.sleep(3)
+        copia_parecer()
+        cola_parecer_excel()
+        
+        # x+=1
+        
+        # break
+    
+    except:
+        pass
+        
+        # x+=1
