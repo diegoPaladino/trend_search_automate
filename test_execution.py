@@ -41,11 +41,6 @@ def copia_cod():
     a = root.clipboard_get()
     print(datetime.now(), ' - ACAO copiado')
     
-    
-    
-    
-    
-
 
 def copia_parecer():
     p.moveTo(334,-92,duration=0.3)
@@ -60,7 +55,6 @@ def copia_parecer():
     print(datetime.now(), ' - PARECER copiado')
     
     
-
 def cola_parecer_excel():
     p.moveTo(316,-24,duration=0.3)
     p.click()
@@ -79,10 +73,10 @@ def cola_parecer_excel():
     print(datetime.now(), ' - PARECER colado')
     
 def exception():
-    # p.hotkey('esc')
-    # t.sleep(0.2)
-    p.moveTo(x=1337, y=-851,duration=0.2)
-    p.click()
+    print(' Exception ')
+    p.hotkey('esc')
+    t.sleep(0.2)
+    p.hotkey('down')
 
 def pesquisa():
 
@@ -92,14 +86,12 @@ def pesquisa():
     print(datetime.now(), ' - ACAO2 copiado')
     print(c)
 
-
     acao2 = c
-    print(acao2)
 
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
                                             from_date='02/07/2021',
-                                            to_date='05/08/2021')
+                                            to_date='06/08/2021')
 
     df_bolsa.index.names = ['Data']
     df_bolsa.columns = ['Abertura', 'Maximo', 'Minimo', 'Fechamento', 'Volume', 'Moeda']
@@ -110,8 +102,9 @@ def pesquisa():
 
     # compute the simple moving average
     df_['ema21'] = df_['Fechamento'].ewm(span=21, adjust=False).mean()
+    
 
-    print(df_)
+    # print(df_)
 
     tendencia_alta=1
     for i in range(6):
@@ -125,6 +118,8 @@ def pesquisa():
     else:
         # print(acao2 + ' não está em tendência de alta!')
         print('NÃO')
+        
+    t.sleep(0.5)
 
     ##############
     # Plot Chart #
@@ -169,12 +164,11 @@ while True:
     try:
         copia_cod()
         pesquisa()
-        t.sleep(2)
         copia_parecer()
         cola_parecer_excel()
         # print(acao)
     except:
-        print('Exception ')
+        print(' Exception ')
         p.hotkey('esc')
         t.sleep(0.2)
         p.hotkey('down')
