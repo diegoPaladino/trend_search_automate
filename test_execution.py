@@ -19,9 +19,6 @@ y = 0
 
 #buca codigo na lista de acoes do excel:
 
-
-    
-
 def seleciona_excel():
     p.moveTo(316,-24)
     p.click()
@@ -63,6 +60,12 @@ def cola_parecer_excel():
     p.press('right')
     t.sleep(1)
     print(datetime.now(), ' - parecer colado')
+    
+def exception():
+    # p.hotkey('esc')
+    # t.sleep(0.2)
+    p.moveTo(x=1337, y=-851,duration=0.2)
+    p.click()
 
 def pesquisa():
 
@@ -76,7 +79,7 @@ def pesquisa():
 
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
-                                            from_date='02/08/2021',
+                                            from_date='02/07/2021',
                                             to_date='05/08/2021')
 
     df_bolsa.index.names = ['Data']
@@ -143,19 +146,20 @@ print(datetime.now(), ' - excel selecionado (primeira vez)')
 
 # p.alert(text='vamos começar!', title='COMEÇO', button='OK')
 
-
 while True:
-    copia_cod()
-    # clipboard()
-    pesquisa()
-    t.sleep(3)
-    copia_parecer()
-    cola_parecer_excel()
+    try:
+        copia_cod()
+        # clipboard()
+        pesquisa()
+        t.sleep(3)
+        copia_parecer()
+        cola_parecer_excel()
+    except:
+        exception()
         
+    # else:
+    #     print('eureka!')
 
-    
-    # try:
-        
     #     copia_cod()
     #     # clipboard()
     #     pesquisa()
