@@ -90,8 +90,8 @@ def pesquisa():
 
     df_bolsa = investpy.get_stock_historical_data(stock=acao2,
                                             country='brazil',
-                                            from_date='02/07/2021',
-                                            to_date='06/08/2021')
+                                            from_date='01/01/2021',
+                                            to_date='09/08/2021')
 
     df_bolsa.index.names = ['Data']
     df_bolsa.columns = ['Abertura', 'Maximo', 'Minimo', 'Fechamento', 'Volume', 'Moeda']
