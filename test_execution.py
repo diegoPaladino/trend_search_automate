@@ -36,9 +36,6 @@ def copia_cod():
     p.keyDown('ctrl')
     p.hotkey('c')
     p.keyUp('ctrl')
-    root = tk.Tk()
-    root.withdraw()
-    a = root.clipboard_get()
     print(datetime.now(), ' - ACAO copiado')
     
 
@@ -48,10 +45,6 @@ def copia_parecer():
     p.keyDown('ctrl')
     p.hotkey('c')
     p.keyUp('ctrl')
-    root = tk.Tk()
-    root.withdraw()
-    b = root.clipboard_get()
-    # pyperclip.copy(b)
     print(datetime.now(), ' - PARECER copiado')
     
     
